@@ -4,7 +4,7 @@
 	<groupId>com.simondevineau.extia</groupId>
 	<artifactId>maven-demo</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<name>Maven Demo pour Extia</name>
 	<properties>
 		<jdk.version>1.7</jdk.version>
