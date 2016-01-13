@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BaseController {
 
+	/**
+	 * This a counter
+	 */
 	private static int counter = 0;
 	private static final String VIEW_INDEX = "index";
 	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
@@ -26,9 +29,14 @@ public class BaseController {
 
 	}
 
+	/**
+	 * 
+	 * @param name, the name of the person to welcomed
+	 * @param model, the type oh the HTTP request
+	 * @return  the InternalResourceViewResolver used by spring
+	 */
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
-
 		model.addAttribute("message", "Welcome " + name);
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcomeName] counter : {}", counter);
