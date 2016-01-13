@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.simondevineau.extia</groupId>
 	<artifactId>maven-demo</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>Maven Demo pour Extia</name>
 	<properties>
 		<jdk.version>1.7</jdk.version>
@@ -118,8 +119,7 @@
 		<url>http://github.com/SimonDevineau/MavenExtiaDemo</url>
 		<connection>scm:git:http://github.com/SimonDevineau/MavenExtiaDemo</connection>
 		<developerConnection>scm:git:http://github.com/SimonDevineau/MavenExtiaDemo</developerConnection>
-	  <tag>maven-demo-1.0</tag>
-  </scm>
+	</scm>
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
