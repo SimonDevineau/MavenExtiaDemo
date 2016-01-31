@@ -15,7 +15,9 @@
 		<junit.version>4.11</junit.version>
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
-		<jboss75x.home>/Users/simondevineau/Workspace/tools/JBoss/EAP-6.4.0/standalone</jboss75x.home>
+		<jboss75x.home>${basedir}/src/main/resources/JBoss/EAP-6.4.0/standalone</jboss75x.home>
+		<jboss75x.hostname>localhost</jboss75x.hostname>
+		<jboss75x.management-native.port>9999</jboss75x.management-native.port>
 	</properties>
 	<dependencies>
 		<!-- Unit Test -->
@@ -150,19 +152,23 @@
 								<id>jboss75x</id>
 								<phase>install</phase>
 								<goals>
-									<goal>deploy</goal>
+									<goal>redeploy</goal>
 								</goals>
 								<configuration>
 									<!-- Container configuration -->
 									<container>
 										<containerId>jboss75x</containerId>
+										<type>remote</type>
 									</container>
 									<!-- Configuration to use with the container (which will also configure 
 										the deployer) -->
 									<configuration>
-										<type>standalone</type>
-										<home>${jboss75x.home}</home>
+										<type>runtime</type>
 										<properties>
+											<cargo.hostname>${jboss75x.hostname}</cargo.hostname>
+											<cargo.jboss.management-native.port>${jboss75x.management-native.port}</cargo.jboss.management-native.port>
+											<cargo.remote.password>adminextia18!</cargo.remote.password>
+											<cargo.remote.username>admin</cargo.remote.username>
 										</properties>
 									</configuration>
 									<deployables>
@@ -177,6 +183,13 @@
 								</configuration>
 							</execution>
 						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.jboss.as</groupId>
+								<artifactId>jboss-as-controller-client</artifactId>
+								<version>7.2.0.Final</version>
+							</dependency>
+						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
