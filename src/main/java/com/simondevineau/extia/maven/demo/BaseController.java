@@ -19,9 +19,9 @@ public class BaseController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
-		System.out.println("Je ne devrias pas faire ca.");
+		System.out.println("Je ne devrais pas faire ca.");
 		model.addAttribute("message", "Welcome");
-		model.addAttribute("counter", ++counter);
+		model.addAttribute("counter", --counter);
 		logger.debug("[welcome] counter : {}", counter);
 		try {
 			throw new NullPointerException();
@@ -44,7 +44,7 @@ public class BaseController {
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
 		model.addAttribute("message", "Welcome " + name);
-		model.addAttribute("counter", ++counter);
+		model.addAttribute("counter", --counter);
 		logger.debug("[welcomeName] counter : {}", counter);
 		return VIEW_INDEX;
 
