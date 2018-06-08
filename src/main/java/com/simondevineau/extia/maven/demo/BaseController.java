@@ -19,11 +19,15 @@ public class BaseController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
-
+		System.out.println("Je ne devrias pas faire ca.");
 		model.addAttribute("message", "Welcome");
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcome] counter : {}", counter);
-
+		try {
+			throw new NullPointerException();
+		} catch (Exception e) {
+			logger.error("Je devrais reforward l'exception");
+		}
 		// Spring uses InternalResourceViewResolver and return back index.jsp
 		return VIEW_INDEX;
 
@@ -31,9 +35,11 @@ public class BaseController {
 
 	/**
 	 * 
-	 * @param name, the name of the person to welcomed
-	 * @param model, the type oh the HTTP request
-	 * @return  the InternalResourceViewResolver used by spring
+	 * @param name,
+	 *            the name of the person to welcomed
+	 * @param model,
+	 *            the type oh the HTTP request
+	 * @return the InternalResourceViewResolver used by spring
 	 */
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
